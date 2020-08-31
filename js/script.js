@@ -1,9 +1,5 @@
-"use strict";
-a = 15;
-
-console.log(a);
-
-
+'use strict';
+let numberOfFilms = prompt();
 
 
 
