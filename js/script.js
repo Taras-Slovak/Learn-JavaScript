@@ -5,7 +5,7 @@ let numberOfFilms;
 do {
     numberOfFilms = +prompt('Скільки ти фільмів вже подивився?', '');
 
-} while (numberOfFilms === '' || numberOfFilms === null || numberOfFilms.length > 2);
+} while (numberOfFilms === '' || numberOfFilms === null || isNaN(numberOfFilms) || numberOfFilms.length > 2);
 
 if (numberOfFilms < 11) {
     alert('Дуже мала кілкість');
@@ -35,8 +35,8 @@ for (let i = 0; i < 2; i++){
     } while (a === '' || a === null || a.length > 50);
 
         do {
-        b = prompt('Яку оцінку поставите йому?', '');
-    } while (b === '' || b === null || b.length > 50);
+        b = +prompt('Яку оцінку поставите йому?', '');
+    } while (b === '' || b === null || isNaN(numberOfFilms) || b.length > 1);
 
     personalMovieDB.movies[a] = b;
 }
