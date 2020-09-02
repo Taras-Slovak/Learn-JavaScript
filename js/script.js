@@ -5,7 +5,7 @@ let numberOfFilms;
 do {
     numberOfFilms = +prompt('Скільки ти фільмів вже подивився?', '');
 
-} while (numberOfFilms === '' || numberOfFilms === null || typeof numberOfFilms === 'number' || numberOfFilms.length > 2);
+} while (numberOfFilms === '' || numberOfFilms === null || numberOfFilms.length > 2);
 
 if (numberOfFilms < 11) {
     alert('Дуже мала кілкість');
