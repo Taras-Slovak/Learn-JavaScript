@@ -5,22 +5,39 @@ let numberOfFilms;
 do {
     numberOfFilms = prompt('Скільки ти фільмів вже подивився?', '');
 
-} while (numberOfFilms === '' || numberOfFilms === null || isNaN(numberOfFilms) || numberOfFilms.length > 2);
+    if (numberOfFilms === '') {
+        alert('Пусто');
+    }
+    if (numberOfFilms === null) {
+        alert('Нажато відміна');
+    }
+    if (isNaN(numberOfFilms)) {
+        alert('Тільки цифри');
+    }
+    if (numberOfFilms >= 1000) {
+        alert('Помилка');
+}
+  
+} while (numberOfFilms === '' || numberOfFilms === null || isNaN(numberOfFilms) || numberOfFilms.length > 3);
 
-if (numberOfFilms < 11) {
-    alert('Дуже мала кілкість');
-} else if (numberOfFilms < 30) {
-    alert('Достаня кількість');
-} else if (numberOfFilms < 50) {
-    alert('Ви кіноман');
-} else {
-    alert('Помилка');
+
+
+if (numberOfFilms > 0 && numberOfFilms <= 250 ) {
+    alert('Мала кількість, покзник для начинаючого кіномана');
+}
+if (numberOfFilms > 251 && numberOfFilms <= 500) {
+    alert('В можете вступити в клуб кіноманів');
+}
+if (numberOfFilms > 501 && numberOfFilms <= 750) {
+    alert('Ви гуру серед кіноманів');
+}
+if ( numberOfFilms > 750 && numberOfFilms <= 999) {
+    alert('Це тягне на рекорд Гінеса');
 }
 
 
-
 let personalMovieDB = {
-    count: numberOfFilms,
+    count: +numberOfFilms,
     movies: {},
     actors: {},
     genres: [],
@@ -29,16 +46,42 @@ let personalMovieDB = {
 
 
 let a,
-    b ;
+    b;
 
-for (let i = 0; i < 2; i++){
-    
+for (let i = 0; i < 2; i++) {
+
     do {
         a = prompt('Один із послідніх фільмів, які Ви подивились?', '');
+
+        if (a === '') {
+            alert('Пусто');
+        }
+        if (a === null) {
+            alert('Нажато відміна');
+        }
+        if (a.length > 50 ) {
+            alert('Перевищина кількість знаків');
+        }
+       
+
     } while (a === '' || a === null || a.length > 50);
 
-        do {
+    do {
         b = prompt('Яку оцінку поставите йому?', '');
+
+        if (b === '') {
+            alert('Пусто');
+        }
+        if (b === null) {
+            alert('Нажато відміна');
+        }
+        if (isNaN(b)) {
+            alert('Тільки цифри');
+        }
+        if (b > 100) {
+            alert('Рейтинг з 0 до 100');
+    }
+
     } while (b === '' || b === null || isNaN(b) || b.length > 2);
 
     personalMovieDB.movies[a] = b;
@@ -46,3 +89,4 @@ for (let i = 0; i < 2; i++){
 
 
 console.log(personalMovieDB);
+
