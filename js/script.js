@@ -1,12 +1,13 @@
 'use strict';
 
-
 let numberOfFilms;
+
+
 
 function start() {
 
     do {
-        numberOfFilms = +prompt('Скільки ти фільмів вже подивився?', '');
+        numberOfFilms = prompt('Скільки ти фільмів вже подивився?', '');
 
         if (numberOfFilms === '') {
             alert('Пусто');
@@ -21,11 +22,32 @@ function start() {
             alert('Помилка');
         }
 
-    } while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms) || numberOfFilms.length > 3);
-    
+    } while (numberOfFilms ==='' || numberOfFilms === null || isNaN(numberOfFilms) || numberOfFilms.length > 3);
+
 }
 
-start();
+// start();
+
+
+function detectPersonalLevel() {
+
+    if (numberOfFilms > 0 && numberOfFilms <= 250) {
+        alert('Мала кількість, покзник для начинаючого кіномана');
+    }
+    if (numberOfFilms > 251 && numberOfFilms <= 500) {
+        alert('В можете вступити в клуб кіноманів');
+    }
+    if (numberOfFilms > 501 && numberOfFilms <= 750) {
+        alert('Ви гуру серед кіноманів');
+    }
+    if (numberOfFilms > 750 && numberOfFilms <= 999) {
+        alert('Це тягне на рекорд Гінеса');
+    }
+}
+
+
+// detectPersonalLevel();
+
 
 let personalMovieDB = {
 
@@ -35,7 +57,6 @@ let personalMovieDB = {
     genres: [],
     privat: false
 };
-
 
 function rememberMyFilms() {
 
@@ -52,6 +73,7 @@ function rememberMyFilms() {
             }
             if (a === null) {
                 alert('Нажато відміна');
+                continue;
             }
             if (a.length > 50) {
                 alert('Перевищина кількість знаків');
@@ -76,32 +98,32 @@ function rememberMyFilms() {
                 alert('Рейтинг з 0 до 100');
             }
 
-        } while (b == '' || b == null || isNaN(b) || b.length > 2);
+        } while (b ==='' || b === null || isNaN(b) || b.length > 2);
 
         personalMovieDB.movies[a] = b;
 
     }
 }
 
-function detectPersonalLevel() {
+// rememberMyFilms();
 
-    if (numberOfFilms > 0 && numberOfFilms <= 250) {
-        alert('Мала кількість, покзник для начинаючого кіномана');
+function writeYourGeres () {
+
+    for (let i = 0; i < 3; i++) {
+        
+        personalMovieDB.genres[i] = prompt(`Ваш улуюлений жанр під номером ${i + 1 }`);
     }
-    if (numberOfFilms > 251 && numberOfFilms <= 500) {
-        alert('В можете вступити в клуб кіноманів');
-    }
-    if (numberOfFilms > 501 && numberOfFilms <= 750) {
-        alert('Ви гуру серед кіноманів');
-    }
-    if (numberOfFilms > 750 && numberOfFilms <= 999) {
-        alert('Це тягне на рекорд Гінеса');
+
+    
+
+}
+
+writeYourGeres ();
+
+function showMyDB () {
+    if (!personalMovieDB.privat) {
+        console.log(personalMovieDB);
     }
 }
 
-
-
-rememberMyFilms();
-detectPersonalLevel();
-
-console.log(personalMovieDB);
+showMyDB();
