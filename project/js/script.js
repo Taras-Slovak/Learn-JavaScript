@@ -14,13 +14,43 @@
 
 'use strict';
 
-const movieDB = {
-    movies: [
-        'Логан',
-        'Лига справедливости',
-        'Ла-ла лэнд',
-        'Одержимость',
-        'Скотт Пилигрим против...'
-    ]
-};
 
+
+const promo = document.querySelector('.promo__bg'),
+    adv = document.querySelectorAll('.promo__adv img'),
+    text = document.querySelector('.promo__genre'),
+    list = document.querySelector('.promo__interactive-list'),
+
+    movieDB = {
+        movies: [
+            'Логан',
+            'Лига справедливости',
+            'Ла-ла лэнд',
+            'Одержимость',
+            'Скотт Пилигрим против...'
+        ]
+    };
+
+
+adv.forEach(item => {
+    item.remove();
+});
+
+promo.style.backgroundImage = 'url("/img/bg.jpg")';
+
+
+ list.innerHTML = '';
+
+
+movieDB.movies.sort();
+
+
+
+movieDB.movies.forEach((film, i) => {
+
+    list.innerHTML += `<li class="promo__interactive-item">${i+1}. ${film}
+    <div class="delete"></div>
+</li>`;
+});
+
+console.log(list);
