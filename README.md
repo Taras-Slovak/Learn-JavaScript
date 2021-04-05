@@ -1,3 +1,3 @@
-# Learn-JavaScript
+# Learn JavaScript
 
-JavaScript basics
+
